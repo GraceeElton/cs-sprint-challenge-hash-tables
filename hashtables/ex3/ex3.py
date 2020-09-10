@@ -2,11 +2,6 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
-    # human way
-    # w
-# UGHHHH i wanted to do better
-    return result
 
 
 if __name__ == "__main__":

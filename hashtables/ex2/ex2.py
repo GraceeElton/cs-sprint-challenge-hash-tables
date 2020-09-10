@@ -25,16 +25,15 @@ def reconstruct_trip(tickets, length):
     for i in tickets:
         d[i.source] = i.destination
     # find the start ticket wich is equal to NONE
-    for start in tickets:
-        if start == "NONE":
-            route.append(start)
+    route.append(d['NONE'])
 
-    # for the route
-    # Then, when constructing the entire
-    # route, the `i`th location in the route can be found by checking the
-    # hash table for the `i-1`th location.
-
-    return print(route)
+    for i in range(1, length):
+        # route, the `i`th location in the route can be found by checking the
+        # hash table for the `i-1`th location.
+        next_source = route[i-1]
+        if next_source in d:
+            route.append(d[next_source])
+    return route
 
 
 ticket_1 = Ticket("NONE", "PDX")
@@ -44,9 +43,3 @@ ticket_3 = Ticket("DCA", "NONE")
 tickets = [ticket_1, ticket_2, ticket_3]
 
 reconstruct_trip(tickets, 3)
-# okay how would you do this a human
-# first i would lay out all of the tickets(also this would NEVEr happend to me hah)
-# i would find the start and stop dest
-# then i would the to and from pairs and set them next to each other
-# then my trip would be in order
-# okay okay that works but how are you going to tell the computer this?
